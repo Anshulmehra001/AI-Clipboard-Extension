@@ -2,112 +2,94 @@
 
 const images = [
     {
-        id: 'title-card-background',
-        title: '🎬 Title Card Background',
-        description: 'Cinematic title card background with gentle waves of glowing electric teal and blue light particles.',
-        prompt: 'Cinematic title card background, a vast and minimalist abstract space. Gentle waves of glowing electric teal and blue light particles drift across a deep navy blue textured canvas. A soft, out-of-focus central glow. Digital art, futuristic. --ar 16:9 --no text, words, logos.',
-        keywords: ['cinematic', 'title', 'background', 'minimalist'],
+        id: 'title-card',
+        title: '🎬 1. Title Card',
+        description: 'Sleek, minimalist desk in dark office with futuristic keyboard and glowing holographic "Context-Aware Creator" logo.',
+        prompt: 'A cinematic wide shot of a sleek, minimalist desk in a dark, modern office at night. A futuristic, backlit keyboard sits on the desk. A glowing holographic logo for "Context-Aware Creator" is projected in the air above the keyboard. Ultra-realistic CGI, dramatic lighting, deep navy blue and electric teal color palette. --ar 16:9 --no ugly, blurry, deformed, watermark.',
+        keywords: ['cinematic', 'office', 'holographic', 'logo'],
         demoUse: 'Video opening sequence',
         section: 'Part 1: The Hook'
     },
     {
         id: 'information-overload',
-        title: '😤 The Problem: Information Overload',
-        description: 'A faceless human silhouette overwhelmed by chaotic storm of floating holographic windows.',
-        prompt: 'Information overload visualized. A faceless human silhouette seen from behind, dwarfed by a chaotic storm of floating holographic windows showing abstract charts and glowing lines of code. Dynamic blue and teal data particles fill the air. Cinematic, futuristic, digital art. --ar 16:9 --no text, words, logos.',
-        keywords: ['overload', 'chaos', 'holographic', 'silhouette'],
+        title: '😤 2. The Problem: Information Overload',
+        description: 'Person overwhelmed as dozens of glowing holographic windows erupt from computer screen, filling dark room.',
+        prompt: 'A person is seen from behind, sitting in a chair in a dark office, overwhelmed as dozens of glowing, translucent holographic windows showing abstract charts and code erupt from their computer screen, filling the room with a chaotic blue light. Ultra-realistic CGI, cinematic, dramatic angle. --ar 16:9 --no ugly, blurry, deformed, watermark, text, signature.',
+        keywords: ['overload', 'chaos', 'holographic', 'overwhelmed'],
         demoUse: 'Problem identification scene',
         section: 'Part 1: The Hook'
     },
     {
         id: 'stressed-user',
-        title: '😤 The Problem: Stressed User',
-        description: 'Emotional burnout from technology showing person frustrated at futuristic desk.',
-        prompt: 'Emotional burnout from technology. A minimalist illustration of a person at a futuristic desk, their head buried in their hands in a moment of quiet frustration. The screen casts an overwhelming, complex glow of data onto them. Stylized, faceless character, deep navy and teal color palette. --ar 16:9 --no text, typography.',
-        keywords: ['stress', 'frustration', 'burnout', 'overwhelmed'],
+        title: '😤 3. The Problem: Stressed User',
+        description: 'Cinematic close-up of person\'s face illuminated by computer screen, showing frustration and exhaustion.',
+        prompt: 'A cinematic close-up on a person\'s face, illuminated only by the cold, blue light of a computer screen in a dark room. Their expression is one of deep frustration and exhaustion, eyes strained. The screen\'s reflection shows complex, confusing data. Ultra-realistic CGI, shallow depth of field. --ar 16:9 --no ugly, blurry, deformed, watermark, text, signature.',
+        keywords: ['stress', 'frustration', 'close-up', 'exhaustion'],
         demoUse: 'Problem identification scene',
         section: 'Part 1: The Hook'
     },
     {
-        id: 'focused-typing',
-        title: '✨ The Solution: Focused Typing',
-        description: 'Cinematic close-up of hands typing on sleek, minimalist keyboard with glowing teal light.',
-        prompt: 'The moment of creation. A cinematic close-up, top-down view of hands typing on a sleek, minimalist keyboard. The keys are unmarked, glowing with soft teal light from underneath. The background is a clean, dark, reflective surface. Photorealistic details, digital art. --ar 16:9 --no logos.',
-        keywords: ['typing', 'creation', 'keyboard', 'cinematic'],
-        demoUse: 'Solution introduction',
-        section: 'Part 2: The Solution'
-    },
-    {
-        id: 'ai-transformation',
-        title: '✨ The Solution: AI Transformation',
-        description: 'Visual metaphor showing simple data stream transforming into complex, beautiful network.',
-        prompt: 'Visual metaphor for AI transformation. A single, simple data stream on the left transforms into a complex, beautiful, and structured network of glowing data on the right. A clear visual metamorphosis. Minimalist, glowing electric teal on a dark navy canvas, digital art. --ar 16:9 --no text, words.',
-        keywords: ['transformation', 'metamorphosis', 'network', 'evolution'],
+        id: 'ai-transformation-visualized',
+        title: '✨ 4. The Solution: AI Transformation Visualized',
+        description: 'Glowing holographic interface showing simple sentence transforming into detailed paragraph with connecting line.',
+        prompt: 'A glowing holographic user interface floating in a dark room. On the left side, the simple sentence "we should focus on marketing" is written in plain white text. On the right side, a long, well-structured paragraph is highlighted in glowing electric teal. A glowing line connects the two, showing a transformation. Cinematic, high-tech. --ar 16:9 --no ugly, blurry, deformed, watermark, signature.',
+        keywords: ['transformation', 'holographic', 'interface', 'AI'],
         demoUse: 'Solution demonstration',
-        section: 'Part 2: The Solution'
+        section: 'Part 2: The Solution & Features'
     },
     {
-        id: 'complex-jargon',
-        title: '🔍 Feature: Complex Jargon',
-        description: 'Abstract visualization of complexity as dense, chaotic knot of glowing data threads.',
-        prompt: 'The tangled web of jargon. An abstract visualization of complexity. A dense, chaotic knot of glowing white and purple data threads. The knot is the central focus on a dark navy blue background. Digital art, futuristic. --ar 16:9 --no text, typography.',
-        keywords: ['complexity', 'jargon', 'tangled', 'knot'],
-        demoUse: 'Feature demonstration - Before',
-        section: 'Part 3: The Features'
-    },
-    {
-        id: 'simplified-idea',
-        title: '🔍 Feature: Simplified Idea',
-        description: 'The clarity of simplification - tangled knot unraveled into single, elegant flowing line.',
-        prompt: 'The clarity of simplification. The tangled knot from the previous image has been unraveled into a single, clean, and elegant glowing teal line that flows smoothly across the screen. Minimalist, beautiful, digital art. --ar 16:9 --no text, words.',
-        keywords: ['simplicity', 'clarity', 'elegant', 'unraveled'],
-        demoUse: 'Feature demonstration - After',
-        section: 'Part 3: The Features'
+        id: 'simplifying-jargon',
+        title: '🔍 5. Feature: Simplifying Jargon',
+        description: 'Futuristic screen showing dense technical jargon being scanned and transformed into simple, clear sentence.',
+        prompt: 'A cinematic close-up of a futuristic, translucent glass screen showing a paragraph of dense, technical jargon glowing faintly white. A glowing teal scanner highlights the text, which then transforms into a single, simple sentence written in bright, clear electric teal. Dark, modern office background. --ar 16:9 --no ugly, blurry, deformed, watermark, signature.',
+        keywords: ['jargon', 'simplification', 'scanner', 'transformation'],
+        demoUse: 'Feature demonstration',
+        section: 'Part 2: The Solution & Features'
     },
     {
         id: 'aha-moment',
-        title: '💡 Feature: Aha Moment',
-        description: 'The moment of understanding with human silhouette and bright glowing lightbulb.',
-        prompt: 'The moment of understanding. A stylized, minimalist illustration of a human silhouette in profile. A single, bright electric teal lightbulb icon glows brightly beside their head. Dark background, faceless character, digital art. --ar 16:9 --no text, logos.',
-        keywords: ['understanding', 'insight', 'lightbulb', 'moment'],
+        title: '💡 6. Feature: "Aha!" Moment',
+        description: 'Person\'s face transforming from frustration to understanding, illuminated by soft teal glow from screen.',
+        prompt: 'A person looking at their computer screen in a dark room. Their face, which was previously tense, is now illuminated with a soft, warm teal glow from the screen, and a subtle smile of relief and understanding spreads across their face. Cinematic, emotional, shallow depth of field. Ultra-realistic CGI. --ar 16:9 --no ugly, blurry, deformed, watermark.',
+        keywords: ['understanding', 'relief', 'transformation', 'emotional'],
         demoUse: 'Feature demonstration',
-        section: 'Part 3: The Features'
+        section: 'Part 2: The Solution & Features'
     },
     {
         id: 'gemini-nano-cpu',
-        title: '🧠 Technology: Gemini Nano CPU',
-        description: 'Futuristic glowing CPU chip with "Gemini Nano" etched on surface and intricate circuits.',
-        prompt: 'The heart of the AI. A futuristic, glowing teal CPU chip in the center of the screen. Intricate circuits and glowing data paths are visible on its surface. The words "Gemini Nano" are subtly etched onto the chip in a modern, clean font. Dark background, cinematic macro shot, digital art. --ar 16:9.',
-        keywords: ['CPU', 'technology', 'Gemini', 'circuits'],
+        title: '🧠 7. The Technology: Gemini Nano CPU',
+        description: 'Extreme macro shot of futuristic CPU with glowing electric teal data streams pulsing through circuits.',
+        prompt: 'Extreme macro shot of a futuristic CPU processor. Glowing electric teal data streams pulse through its intricate, silver circuits. Dramatic lighting, sharp focus, dark background. Ultra-realistic CGI, cinematic. --ar 16:9 --no ugly, blurry, deformed, watermark, text.',
+        keywords: ['CPU', 'macro', 'circuits', 'technology'],
         demoUse: 'Technology explanation',
-        section: 'Part 4: The Technology'
+        section: 'Part 3: The Technology'
     },
     {
         id: 'privacy-shield',
-        title: '🔒 Technology: Privacy Shield',
-        description: 'Glowing shield forming protective bubble around CPU, deflecting red data particles.',
-        prompt: 'On-device privacy visualized. A glowing, semi-transparent teal shield forming a protective bubble around the futuristic CPU from the previous image. The shield deflects small, abstract red data particles representing threats. A clear symbol of security. Digital art. --ar 16:9 --no text, words, logos.',
-        keywords: ['privacy', 'security', 'shield', 'protection'],
+        title: '🔒 8. The Technology: Privacy Shield',
+        description: 'Futuristic CPU protected by shimmering teal energy shield deflecting incoming red digital particles.',
+        prompt: 'A cinematic shot of a futuristic CPU. A shimmering, semi-transparent teal energy shield materializes around it, deflecting incoming red digital particles that represent threats. A powerful visualization of on-device data protection. Ultra-realistic CGI. --ar 16:9 --no ugly, blurry, deformed, watermark, text.',
+        keywords: ['privacy', 'shield', 'protection', 'security'],
         demoUse: 'Privacy assurance',
-        section: 'Part 4: The Technology'
+        section: 'Part 3: The Technology'
     },
     {
         id: 'productive-people',
-        title: '🎯 Result: Productive People',
-        description: 'Minimalist illustration of confident student with organized data streams representing productivity.',
-        prompt: 'Human potential unlocked. A minimalist illustration of a student at a futuristic desk, looking up from their screen with a confident smile. Organized streams of glowing data flow around them, representing productivity and clarity. Faceless character, deep blue and teal palette, digital art. --ar 16:9 --no text, words.',
-        keywords: ['productivity', 'success', 'confidence', 'organized'],
+        title: '🎯 9. The Result: Productive People',
+        description: 'Modern collaborative workspace at night with diverse team working happily, holographic interfaces above desks.',
+        prompt: 'A cinematic wide shot of a modern, collaborative workspace at night. A diverse team of people are working at their desks, smiling and engaged. Clean, organized holographic user interfaces float above each desk, showing their successful work. A sense of calm productivity. Ultra-realistic CGI. --ar 16:9 --no ugly, blurry, deformed, watermark, text.',
+        keywords: ['productivity', 'collaboration', 'success', 'team'],
         demoUse: 'Success demonstration',
-        section: 'Part 5: The Outro'
+        section: 'Part 4: The Outro'
     },
     {
         id: 'final-background',
-        title: '🎬 Final Background',
-        description: 'Beautiful, calm abstract background with soft bokeh lights conveying accomplishment.',
-        prompt: 'Final title card background. A beautiful, calm, and inspiring abstract image. Soft, out-of-focus bokeh lights in shades of deep blue and electric teal drift peacefully across a dark canvas. A feeling of accomplishment. Minimalist, digital art. --ar 16:9 --no text, words, logos.',
-        keywords: ['calm', 'inspiring', 'bokeh', 'accomplishment'],
+        title: '🎬 10. Final Background',
+        description: 'Serene modern office at night with soft glowing teal and blue bokeh lights from city outside window.',
+        prompt: 'A beautiful and serene cinematic background. A dark, modern, out-of-focus office space at night, with soft, glowing teal and blue bokeh lights from the city visible through a large window. A sense of calm and accomplishment. Ultra-realistic CGI. --ar 16:9 --no ugly, blurry, deformed, watermark, text.',
+        keywords: ['serene', 'office', 'bokeh', 'accomplishment'],
         demoUse: 'Video conclusion',
-        section: 'Part 5: The Outro'
+        section: 'Part 4: The Outro'
     }
 ];
 

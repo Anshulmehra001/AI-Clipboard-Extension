@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,13 @@
             padding: 20px;
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             background: linear-gradient(45deg, #00d4ff, #0099cc);
@@ -27,7 +28,7 @@
             -webkit-text-fill-color: transparent;
             margin-bottom: 30px;
         }
-        
+
         .demo-canvas {
             border: 2px solid rgba(0, 212, 255, 0.3);
             border-radius: 10px;
@@ -35,11 +36,11 @@
             max-width: 100%;
             height: auto;
         }
-        
+
         .controls {
             margin: 30px 0;
         }
-        
+
         button {
             background: linear-gradient(45deg, #00d4ff, #0099cc);
             color: white;
@@ -51,12 +52,12 @@
             margin: 5px;
             transition: all 0.3s ease;
         }
-        
+
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
         }
-        
+
         .info {
             background: rgba(255, 255, 255, 0.05);
             padding: 20px;
@@ -65,7 +66,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(0, 212, 255, 0.2);
         }
-        
+
         .gallery-link {
             display: inline-block;
             background: linear-gradient(45deg, #00d4ff, #0099cc);
@@ -77,24 +78,25 @@
             margin: 20px 0;
             transition: all 0.3s ease;
         }
-        
+
         .gallery-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>🎨 AI Visuals Demo</h1>
-        
+
         <div class="info">
             <h3>Live Canvas Generation</h3>
             <p>Watch as AI visuals are generated in real-time using HTML5 Canvas and procedural algorithms.</p>
         </div>
-        
+
         <canvas id="demoCanvas" class="demo-canvas" width="800" height="450"></canvas>
-        
+
         <div class="controls">
             <button onclick="generateRandom()">🎲 Generate Random</button>
             <button onclick="generateDataStream()">📊 Data Streams</button>
@@ -102,16 +104,17 @@
             <button onclick="generateBokeh()">✨ Bokeh Lights</button>
             <button onclick="downloadCanvas()">📥 Download</button>
         </div>
-        
+
         <div class="info">
             <h3>About the Visuals</h3>
-            <p>These images are generated using procedural algorithms that create unique patterns, data visualizations, and abstract art. Each image follows the futuristic theme with deep blue and teal colors.</p>
+            <p>These images are generated using procedural algorithms that create unique patterns, data visualizations,
+                and abstract art. Each image follows the futuristic theme with deep blue and teal colors.</p>
         </div>
-        
+
         <a href="index.html" class="gallery-link">
             🖼️ View Full Gallery
         </a>
-        
+
         <div class="info">
             <p><strong>Context-Aware Creator</strong> - Chrome Extension with Built-in AI</p>
             <p>By <a href="https://github.com/Anshulmehra001" style="color: #00d4ff;">Aniket Mehra</a></p>
@@ -121,54 +124,54 @@
     <script>
         const canvas = document.getElementById('demoCanvas');
         const ctx = canvas.getContext('2d');
-        
+
         function clearCanvas() {
             const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
             gradient.addColorStop(0, '#0a0e27');
             gradient.addColorStop(0.5, '#1a1f3a');
             gradient.addColorStop(1, '#2d3561');
-            
+
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, canvas.width, canvas.height);
         }
-        
+
         function generateDataStream() {
             clearCanvas();
-            
+
             ctx.strokeStyle = 'rgba(0, 212, 255, 0.6)';
             ctx.lineWidth = 3;
-            
+
             for (let i = 0; i < 5; i++) {
                 ctx.beginPath();
                 ctx.moveTo(0, canvas.height * (0.2 + i * 0.15));
-                
+
                 for (let x = 0; x < canvas.width; x += 20) {
                     const y = canvas.height * (0.2 + i * 0.15) + Math.sin(x * 0.02 + i + Date.now() * 0.001) * 40;
                     ctx.lineTo(x, y);
                 }
-                
+
                 ctx.stroke();
             }
-            
+
             // Add particles
             ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
             for (let i = 0; i < 20; i++) {
                 const x = Math.random() * canvas.width;
                 const y = Math.random() * canvas.height;
                 const size = Math.random() * 3 + 1;
-                
+
                 ctx.beginPath();
                 ctx.arc(x, y, size, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
-        
+
         function generateNetwork() {
             clearCanvas();
-            
+
             const nodes = [];
             const nodeCount = 12;
-            
+
             // Generate nodes
             for (let i = 0; i < nodeCount; i++) {
                 nodes.push({
@@ -177,18 +180,18 @@
                     size: Math.random() * 8 + 4
                 });
             }
-            
+
             // Draw connections
             ctx.strokeStyle = 'rgba(0, 212, 255, 0.3)';
             ctx.lineWidth = 1;
-            
+
             for (let i = 0; i < nodes.length; i++) {
                 for (let j = i + 1; j < nodes.length; j++) {
                     const distance = Math.sqrt(
-                        Math.pow(nodes[i].x - nodes[j].x, 2) + 
+                        Math.pow(nodes[i].x - nodes[j].x, 2) +
                         Math.pow(nodes[i].y - nodes[j].y, 2)
                     );
-                    
+
                     if (distance < 150) {
                         ctx.beginPath();
                         ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -197,7 +200,7 @@
                     }
                 }
             }
-            
+
             // Draw nodes
             ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
             nodes.forEach(node => {
@@ -206,36 +209,36 @@
                 ctx.fill();
             });
         }
-        
+
         function generateBokeh() {
             clearCanvas();
-            
+
             for (let i = 0; i < 25; i++) {
                 const x = Math.random() * canvas.width;
                 const y = Math.random() * canvas.height;
                 const radius = Math.random() * 60 + 20;
                 const opacity = Math.random() * 0.4 + 0.1;
-                
+
                 const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
                 gradient.addColorStop(0, `rgba(0, 212, 255, ${opacity})`);
                 gradient.addColorStop(0.7, `rgba(0, 153, 204, ${opacity * 0.5})`);
                 gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
-                
+
                 ctx.fillStyle = gradient;
                 ctx.beginPath();
                 ctx.arc(x, y, radius, 0, Math.PI * 2);
                 ctx.fill();
             }
         }
-        
+
         function generateRandom() {
             const generators = [generateDataStream, generateNetwork, generateBokeh];
             const randomGenerator = generators[Math.floor(Math.random() * generators.length)];
             randomGenerator();
         }
-        
+
         function downloadCanvas() {
-            canvas.toBlob(function(blob) {
+            canvas.toBlob(function (blob) {
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
@@ -246,12 +249,13 @@
                 URL.revokeObjectURL(url);
             }, 'image/png');
         }
-        
+
         // Initialize with data stream
         generateDataStream();
-        
+
         // Auto-generate new visuals every 5 seconds
         setInterval(generateRandom, 5000);
     </script>
 </body>
+
 </html>
