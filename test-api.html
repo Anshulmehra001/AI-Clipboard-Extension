@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome AI API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005a87;
+        }
+        .result {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            white-space: pre-wrap;
+        }
+        .error {
+            background: #ffe6e6;
+            color: #d00;
+        }
+        .success {
+            background: #e6ffe6;
+            color: #060;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Chrome AI API Test</h1>
+    
+    <div class="test-section">
+        <h3>API Availability Check</h3>
+        <button onclick="checkAPIs()">Check AI APIs</button>
+        <div id="api-status" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Rewriter API Test</h3>
+        <button onclick="testRewriter()">Test Rewriter</button>
+        <div id="rewriter-result" class="result"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>Summarizer API Test</h3>
+        <button onclick="testSummarizer()">Test Summarizer</button>
+        <div id="summarizer-result" class="result"></div>
+    </div>
+
+    <script>
+        async function checkAPIs() {
+            const statusDiv = document.getElementById('api-status');
+            const results = [];
+            
+            try {
+                // Check if AI object exists
+                if (typeof globalThis.ai === 'undefined') {
+                    results.push('❌ AI object not available');
+                    results.push('Please enable Chrome AI flags and restart Chrome');
+                } else {
+                    results.push('✅ AI object available');
+                    
+                    // Check individual APIs
+                    if (globalThis.ai.languageModel) {
+                        results.push('✅ Language Model API available');
+                        
+                        // Try to check model status
+                        try {
+                            const capabilities = await globalThis.ai.languageModel.capabilities();
+                            results.push(`Model status: ${capabilities.available}`);
+                        } catch (e) {
+                            results.push('⏳ Model may be downloading...');
+                        }
+                    } else {
+                        results.push('❌ Language Model API not available');
+                    }
+                    
+                    if (globalThis.ai.rewriter) {
+                        results.push('✅ Rewriter API available');
+                    } else {
+                        results.push('❌ Rewriter API not available');
+                    }
+                    
+                    if (globalThis.ai.summarizer) {
+                        results.push('✅ Summarizer API available');
+                    } else {
+                        results.push('❌ Summarizer API not available');
+                    }
+                }
+                
+                statusDiv.className = 'result success';
+                statusDiv.textContent = results.join('\n');
+                
+            } catch (error) {
+                statusDiv.className = 'result error';
+                statusDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function testRewriter() {
+            const resultDiv = document.getElementById('rewriter-result');
+            
+            try {
+                if (!globalThis.ai?.rewriter) {
+                    throw new Error('Rewriter API not available');
+                }
+                
+                resultDiv.textContent = 'Creating rewriter session...';
+                
+                const session = await globalThis.ai.rewriter.create({
+                    tone: 'more-formal',
+                    format: 'plain-text'
+                });
+                
+                resultDiv.textContent = 'Rewriting text...';
+                
+                const testText = "hey whats up? can u send me the files asap";
+                const result = await session.rewrite(testText);
+                
+                session.destroy();
+                
+                resultDiv.className = 'result success';
+                resultDiv.textContent = `Original: ${testText}\n\nRewritten: ${result}`;
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        async function testSummarizer() {
+            const resultDiv = document.getElementById('summarizer-result');
+            
+            try {
+                if (!globalThis.ai?.summarizer) {
+                    throw new Error('Summarizer API not available');
+                }
+                
+                resultDiv.textContent = 'Creating summarizer session...';
+                
+                const session = await globalThis.ai.summarizer.create({
+                    type: 'tl;dr',
+                    format: 'plain-text',
+                    length: 'short'
+                });
+                
+                resultDiv.textContent = 'Summarizing text...';
+                
+                const testText = "Artificial Intelligence has made remarkable progress in recent years, particularly in natural language processing. Large language models can now understand and generate human-like text, enabling applications like chatbots, translation, and content creation. However, challenges remain in ensuring AI safety and addressing bias in training data.";
+                const result = await session.summarize(testText);
+                
+                session.destroy();
+                
+                resultDiv.className = 'result success';
+                resultDiv.textContent = `Original: ${testText}\n\nSummary: ${result}`;
+                
+            } catch (error) {
+                resultDiv.className = 'result error';
+                resultDiv.textContent = `Error: ${error.message}`;
+            }
+        }
+
+        // Auto-check APIs on load
+        window.addEventListener('load', () => {
+            setTimeout(checkAPIs, 1000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliWeb AI Assistant - Demo Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            color: #4a5568;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .demo-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            background: #f7fafc;
+        }
+        .demo-section h3 {
+            color: #2d3748;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        .sample-text {
+            background: #edf2f7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-left: 4px solid #4299e1;
+            transition: all 0.3s ease;
+        }
+        .sample-text:hover {
+            background: #e2e8f0;
+            transform: translateX(5px);
+        }
+        .instructions {
+            background: #bee3f8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #3182ce;
+        }
+        .test-area {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+        .highlight {
+            background: #fef5e7;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 IntelliWeb AI Assistant Demo</h1>
+        
+        <div class="instructions">
+            <h3>🚀 How to Test the Extension</h3>
+            <ol>
+                <li><strong>Select any text below</strong> by clicking and dragging</li>
+                <li><strong>Right-click</strong> to open the context menu</li>
+                <li><strong>Choose "🧠 IntelliWeb AI Assistant"</strong></li>
+                <li><strong>Pick an AI tool</strong> from the submenu</li>
+                <li><strong>Click in a text area</strong> to see the AI-processed result</li>
+            </ol>
+        </div>
+
+        <div class="feature-grid">
+            <div class="demo-section">
+                <h3><span class="emoji">✨</span>Content Enhancement</h3>
+                
+                <h4>💼 Professional Tone Test</h4>
+                <div class="sample-text">
+                    hey john, can u check the numbers in the spreadsheet? also need the report by friday thx
+                </div>
+                
+                <h4>😊 Casual Tone Test</h4>
+                <div class="sample-text">
+                    Please be advised that the quarterly financial analysis report will be submitted by the end of this business week for your review and approval.
+                </div>
+                
+                <h4>🔤 Grammar Fix Test</h4>
+                <div class="sample-text">
+                    this is some messy text with alot of grammer mistakes and weird punctuation its really hard too read
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3><span class="emoji">📊</span>Content Analysis</h3>
+                
+                <h4>📄 Summarization Test</h4>
+                <div class="sample-text">
+                    Artificial Intelligence has made remarkable progress in recent years, particularly in the field of natural language processing. Large language models like GPT and BERT have revolutionized how computers understand and generate human language. These models are trained on vast amounts of text data and can perform a wide variety of tasks including translation, summarization, question answering, and creative writing. The development of transformer architecture has been a key breakthrough, enabling models to process sequences of text more efficiently and effectively. Companies are now integrating AI into their products and services, from chatbots and virtual assistants to content generation and code completion tools.
+                </div>
+                
+                <h4>💡 Simple Explanation Test</h4>
+                <div class="sample-text">
+                    The quantum entanglement phenomenon occurs when particles become interconnected in such a way that the quantum state of each particle cannot be described independently, even when separated by large distances.
+                </div>
+                
+                <h4>🎯 Key Insights Test</h4>
+                <div class="sample-text">
+                    Our Q3 sales data shows a 15% increase in revenue compared to Q2, driven primarily by strong performance in the mobile app segment. Customer acquisition costs decreased by 8%, while retention rates improved to 87%. The European market showed particularly strong growth at 23%, though the Asian market remained flat. Marketing spend efficiency improved significantly with digital channels outperforming traditional media by 3:1 ROI.
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3><span class="emoji">🎨</span>Creative Tools</h3>
+                
+                <h4>💭 Idea Expansion Test</h4>
+                <div class="sample-text">
+                    AI will change education
+                </div>
+                
+                <h4>📋 Outline Creation Test</h4>
+                <div class="sample-text">
+                    We need to plan a company retreat that includes team building activities, strategic planning sessions, and recreational time. The event should accommodate 50 employees and last for two days.
+                </div>
+            </div>
+
+            <div class="demo-section">
+                <h3><span class="emoji">🌐</span>Translation</h3>
+                
+                <h4>🇪🇸 Spanish Translation Test</h4>
+                <div class="sample-text">
+                    Welcome to our company! We are excited to have you join our team and look forward to working together on innovative projects.
+                </div>
+                
+                <h4>🇫🇷 French Translation Test</h4>
+                <div class="sample-text">
+                    The meeting is scheduled for tomorrow at 2 PM in the conference room. Please bring your reports and be prepared to discuss the quarterly results.
+                </div>
+                
+                <h4>🇩🇪 German Translation Test</h4>
+                <div class="sample-text">
+                    Thank you for your excellent work on this project. Your attention to detail and creative solutions have made a significant impact on our success.
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h3><span class="emoji">📝</span>Test Areas</h3>
+            <p>Click in these text areas after using the AI tools to see the results:</p>
+            
+            <h4>Text Area (for longer content)</h4>
+            <textarea class="test-area" placeholder="AI-processed text will appear here..."></textarea>
+            
+            <h4>Input Field (for shorter text)</h4>
+            <input type="text" class="test-area" placeholder="AI results appear here..." style="height: 40px;">
+            
+            <h4>Contenteditable Div (for rich text)</h4>
+            <div contenteditable="true" class="test-area" style="min-height: 80px;">
+                Click here and the AI results will appear...
+            </div>
+        </div>
+
+        <div class="instructions">
+            <h3>🎯 Testing Tips</h3>
+            <ul>
+                <li><strong>Try different text lengths</strong> - from single sentences to full paragraphs</li>
+                <li><strong>Test all menu options</strong> - each uses different AI capabilities</li>
+                <li><strong>Use various input types</strong> - textarea, input fields, and contenteditable divs</li>
+                <li><strong>Check the browser console</strong> (F12) for detailed AI processing information</li>
+                <li><strong>Test on different websites</strong> - Gmail, Google Docs, social media, etc.</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h3><span class="emoji">🔧</span>Troubleshooting</h3>
+            <p>If the extension isn't working:</p>
+            <ul>
+                <li>Check that Chrome AI flags are enabled at <code>chrome://flags/</code></li>
+                <li>Verify AI models are downloaded at <code>chrome://components/</code></li>
+                <li>Test AI availability by running <code>console.log(typeof ai)</code> in DevTools</li>
+                <li>Make sure you're selecting text before right-clicking</li>
+                <li>Reload the extension in <code>chrome://extensions/</code></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Add click handlers to sample text for easy selection
+        document.querySelectorAll('.sample-text').forEach(element => {
+            element.addEventListener('click', function() {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(this);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            });
+        });
+
+        // Add visual feedback
+        document.querySelectorAll('.sample-text').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.borderLeft = '4px solid #38a169';
+            });
+            element.addEventListener('mouseleave', function() {
+                this.style.borderLeft = '4px solid #4299e1';
+            });
+        });
+    </script>
+</body>
+</html>

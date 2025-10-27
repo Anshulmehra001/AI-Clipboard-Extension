@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context-Aware Creator - Test Page</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+
+        .test-text {
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-left: 4px solid #007bff;
+            user-select: text;
+            transition: background-color 0.2s;
+        }
+
+        .test-text:hover {
+            background: #f0f8ff;
+        }
+
+        .instructions {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #007bff;
+        }
+
+        .test-area {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            margin: 10px 0;
+            resize: vertical;
+        }
+
+        .debug-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 12px;
+            border: 1px solid #dee2e6;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .step-number {
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+
+        .api-check {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎯 Context-Aware Creator Test Page</h1>
+
+        <div class="instructions">
+            <h3>📋 How to Test</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div>Highlight any text below by clicking and dragging</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div>Right-click to open the context menu</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div>Choose one of the Context-Aware Creator options</div>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div>Watch the text transform in place!</div>
+            </div>
+        </div>
+
+        <div class="api-check">
+            <h3>🔍 AI API Status</h3>
+            <div id="api-status">Checking Chrome AI availability...</div>
+            <button onclick="checkAI()"
+                style="margin-top: 10px; padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer;">Recheck
+                AI Status</button>
+        </div>
+
+        <div class="test-section">
+            <h3>🚀 Test: Expand This Idea</h3>
+            <p>Select any of these brief statements and use "Expand This Idea":</p>
+
+            <div class="test-text">
+                AI will change education
+            </div>
+
+            <div class="test-text">
+                Remote work is the future
+            </div>
+
+            <div class="test-text">
+                Climate change needs action
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🔍 Test: Simplify This Jargon</h3>
+            <p>Select complex text and use "Simplify This Jargon":</p>
+
+            <div class="test-text">
+                The quantum entanglement phenomenon occurs when particles become interconnected in such a way that the
+                quantum state of each particle cannot be described independently.
+            </div>
+
+            <div class="test-text">
+                Our microservices architecture leverages containerized deployment with Kubernetes orchestration for
+                optimal scalability.
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>✅ Test: Find the Action Item</h3>
+            <p>Select meeting notes and use "Find the Action Item":</p>
+
+            <div class="test-text">
+                Thanks for the great meeting today. We discussed the quarterly budget, reviewed the marketing campaign
+                performance, and talked about hiring new team members. I think we should definitely move forward with
+                the social media strategy we outlined, and someone needs to follow up with the design team about the new
+                website mockups by Friday.
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>🐦 Test: Generate a Tweet from This</h3>
+            <p>Select content and use "Generate a Tweet from This":</p>
+
+            <div class="test-text">
+                Our company just launched a new feature that uses artificial intelligence to help users organize their
+                daily tasks more efficiently. The feature learns from user behavior and suggests optimal scheduling
+                based on priorities and deadlines. Early beta testing shows a 40% improvement in productivity.
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📝 Test Areas for Results</h3>
+            <p>Click in these areas first, then use the extension to see results:</p>
+
+            <h4>Text Area</h4>
+            <textarea class="test-area" placeholder="Results will appear here..."></textarea>
+
+            <h4>Input Field</h4>
+            <input type="text" class="test-area" placeholder="Results appear here..." style="height: 40px;">
+
+            <h4>Contenteditable Div</h4>
+            <div contenteditable="true" class="test-area" style="min-height: 80px;">
+                Click here and use Context-Aware Creator to see results...
+            </div>
+        </div>
+
+        <div class="debug-info">
+            <h3>🐛 Debug Information</h3>
+            <div id="debug-output">
+                Extension Status: <span id="extension-status">Checking...</span><br>
+                Last Action: <span id="last-action">None</span><br>
+                Console: Check browser DevTools for detailed logs
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check Gemini Nano AI API availability
+        async function checkAI() {
+            const statusDiv = document.getElementById('api-status');
+
+            try {
+                // Check for window.ai (Gemini Nano API)
+                const checks = {
+                    'window.ai': typeof window.ai,
+                    'window.ai.canCreateTextSession': typeof window.ai?.canCreateTextSession,
+                    'window.ai.createTextSession': typeof window.ai?.createTextSession
+                };
+
+                let status = '<strong>Gemini Nano AI Status:</strong><br>';
+                for (const [key, value] of Object.entries(checks)) {
+                    const icon = value !== 'undefined' ? '✅' : '❌';
+                    status += `${icon} ${key}: ${value}<br>`;
+                }
+
+                // Check Chrome version
+                const chromeVersion = navigator.userAgent.match(/Chrome\/(\d+)/)?.[1];
+                status += `<br><strong>Chrome Version:</strong> ${chromeVersion || 'Unknown'}`;
+
+                // Test if we can create a text session
+                if ('ai' in window && window.ai.canCreateTextSession) {
+                    try {
+                        const canCreate = await window.ai.canCreateTextSession();
+                        status += `<br><strong>Can Create Session:</strong> ${canCreate ? '✅ Yes' : '❌ No'}`;
+
+                        if (canCreate) {
+                            status += '<br><strong>Status:</strong> ✅ Gemini Nano ready to use!';
+
+                            // Test a simple prompt
+                            try {
+                                const session = await window.ai.createTextSession();
+                                const testResponse = await session.prompt('Say "Hello" in one word.');
+                                status += `<br><strong>Test Response:</strong> "${testResponse}"`;
+                                session.destroy();
+                            } catch (testError) {
+                                status += `<br><strong>Test Error:</strong> ${testError.message}`;
+                            }
+                        } else {
+                            status += '<br><strong>Status:</strong> ⏳ Model may still be downloading';
+                        }
+                    } catch (sessionError) {
+                        status += `<br><strong>Session Error:</strong> ${sessionError.message}`;
+                    }
+                } else {
+                    status += `<br><br><strong>Gemini Nano Setup Required:</strong><br>
+                    1. Chrome Canary or Beta recommended<br>
+                    2. Enable flags: <code>chrome://flags/#prompt-api-for-gemini-nano</code><br>
+                    3. Enable flags: <code>chrome://flags/#optimization-guide-on-device-model</code><br>
+                    4. Restart Chrome and wait for model download<br>
+                    5. Check status: <a href="chrome://on-device-internals" target="_blank">chrome://on-device-internals</a><br>
+                    6. Ensure 22GB free disk space for download`;
+                }
+
+                statusDiv.innerHTML = status;
+
+            } catch (error) {
+                statusDiv.innerHTML = `❌ Error checking Gemini Nano: ${error.message}<br><br>
+                <strong>Setup Instructions:</strong><br>
+                • Use Chrome Canary or Beta<br>
+                • Enable Gemini Nano flags<br>
+                • Restart Chrome<br>
+                • Wait for model download<br>
+                • Check chrome://on-device-internals`;
+            }
+        }
+
+        // Auto-select text when clicked
+        document.querySelectorAll('.test-text').forEach(element => {
+            element.addEventListener('click', function () {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(this);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            });
+        });
+
+        // Update extension status
+        function updateExtensionStatus() {
+            const statusSpan = document.getElementById('extension-status');
+            if (typeof chrome !== 'undefined' && chrome.runtime) {
+                statusSpan.textContent = 'Extension loaded ✅';
+                statusSpan.style.color = 'green';
+            } else {
+                statusSpan.textContent = 'Extension not detected ❌';
+                statusSpan.style.color = 'red';
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function () {
+            checkAI();
+            updateExtensionStatus();
+        });
+
+        // Listen for context menu usage (this won't work directly, but helps with debugging)
+        document.addEventListener('contextmenu', function (e) {
+            const selection = window.getSelection();
+            if (selection.toString().length > 0) {
+                document.getElementById('last-action').textContent = `Context menu on: "${selection.toString().substring(0, 50)}..."`;
+            }
+        });
+    </script>
+</body>
+
+</html>

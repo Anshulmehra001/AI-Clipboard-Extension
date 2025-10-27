@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Context-Aware Creator",
+  "version": "1.0.0",
+  "description": "Transform selected text with Chrome's built-in AI - expand ideas, simplify jargon, find action items, and generate tweets.",
+  "author": "Aniket Mehra",
+  "homepage_url": "https://github.com/Anshulmehra001/context-aware-creator",
+  
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "activeTab"
+  ],
+  
+  "background": {
+    "service_worker": "background.js"
+  },
+  
+  "action": {
+    "default_title": "Context-Aware Creator"
+  },
+  
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

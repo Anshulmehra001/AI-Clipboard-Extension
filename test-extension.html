@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Clipboard Extension Test Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-input {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .sample-text {
+            background: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .sample-text:hover {
+            background: #e5e5e5;
+        }
+        .instructions {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .test-results {
+            background: #f0f8f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        button {
+            background: #007cba;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #005a87;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 AI Clipboard Extension Test Page</h1>
+    
+    <div class="instructions">
+        <h3>📋 Testing Instructions</h3>
+        <ol>
+            <li><strong>Load the extension</strong> in Chrome (chrome://extensions/)</li>
+            <li><strong>Enable Chrome AI flags</strong> (chrome://flags/)</li>
+            <li><strong>Copy sample text</strong> by clicking on it below</li>
+            <li><strong>Click in a text area</strong> to position your cursor</li>
+            <li><strong>Select any text</strong> on this page and right-click</li>
+            <li><strong>Choose transformation</strong> from "AI Clipboard: Paste As..." menu</li>
+            <li><strong>Verify</strong> the transformed text appears in the text area</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h3>🎯 Test Case 1: Professional Transformation</h3>
+        <div class="sample-text" onclick="copyToClipboard(this.textContent)">
+            hey whats up? can u send me the files asap thx
+        </div>
+        <p><strong>Expected:</strong> Formal, professional tone</p>
+        <textarea class="test-input" placeholder="Transformed text will appear here..."></textarea>
+        <div class="test-results" id="result1" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>😊 Test Case 2: Casual Transformation</h3>
+        <div class="sample-text" onclick="copyToClipboard(this.textContent)">
+            Please be advised that the quarterly financial analysis report will be submitted by the end of this business week for your review and approval.
+        </div>
+        <p><strong>Expected:</strong> Friendly, conversational tone</p>
+        <textarea class="test-input" placeholder="Transformed text will appear here..."></textarea>
+        <div class="test-results" id="result2" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>✨ Test Case 3: Clean Paragraph</h3>
+        <div class="sample-text" onclick="copyToClipboard(this.textContent)">
+            this    is some messy text    with weird spacing and no proper punctuation its really hard to read
+        </div>
+        <p><strong>Expected:</strong> Proper formatting and punctuation</p>
+        <textarea class="test-input" placeholder="Transformed text will appear here..."></textarea>
+        <div class="test-results" id="result3" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>📝 Test Case 4: Summary (TL;DR)</h3>
+        <div class="sample-text" onclick="copyToClipboard(this.textContent)">
+            Artificial Intelligence has made remarkable progress in recent years, particularly in the field of natural language processing. Large language models like GPT and BERT have revolutionized how computers understand and generate human language. These models are trained on vast amounts of text data and can perform a wide variety of tasks including translation, summarization, question answering, and creative writing. The development of transformer architecture has been a key breakthrough, enabling models to process sequences of text more efficiently and effectively. Companies are now integrating AI into their products and services, from chatbots and virtual assistants to content generation and code completion tools. However, challenges remain including bias in training data, computational requirements, and ensuring AI systems are safe and beneficial for society.
+        </div>
+        <p><strong>Expected:</strong> Concise TL;DR summary</p>
+        <textarea class="test-input" placeholder="Transformed text will appear here..."></textarea>
+        <div class="test-results" id="result4" style="display:none;"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔧 Additional Test Elements</h3>
+        <p><strong>Input Field Test:</strong></p>
+        <input type="text" class="test-input" style="height: 40px;" placeholder="Test with input field...">
+        
+        <p><strong>Contenteditable Test:</strong></p>
+        <div contenteditable="true" class="test-input" style="min-height: 60px; background: white;">
+            Click here and test with contenteditable div...
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🚀 Performance Test</h3>
+        <div class="sample-text" onclick="copyToClipboard(this.textContent)">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
+        </div>
+        <p><strong>Test:</strong> Large text performance (should complete in <3 seconds)</p>
+        <textarea class="test-input" placeholder="Performance test results..."></textarea>
+        <button onclick="startTimer()">Start Timer</button>
+        <span id="timer"></span>
+    </div>
+
+    <div class="instructions">
+        <h3>✅ Success Criteria</h3>
+        <ul>
+            <li>Context menu appears when text is selected</li>
+            <li>All 4 transformation options are available</li>
+            <li>Transformed text appears in the correct input field</li>
+            <li>Transformations complete within 3 seconds</li>
+            <li>No console errors in DevTools</li>
+            <li>Works across different input types</li>
+        </ul>
+    </div>
+
+    <div class="test-section">
+        <h3>🐛 Debugging Tools</h3>
+        <button onclick="checkAPIs()">Check AI APIs</button>
+        <button onclick="checkExtension()">Check Extension</button>
+        <button onclick="clearResults()">Clear Results</button>
+        <div id="debug-output"></div>
+    </div>
+
+    <script>
+        let startTime;
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('Text copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                showNotification('Failed to copy text', 'error');
+            });
+        }
+
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                background: ${type === 'error' ? '#ff4444' : '#44ff44'};
+                color: white;
+                border-radius: 4px;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        function startTimer() {
+            startTime = Date.now();
+            document.getElementById('timer').textContent = 'Timer started...';
+            
+            // Check for text changes in performance test area
+            const performanceTextarea = document.querySelector('.test-section:last-of-type textarea');
+            const observer = new MutationObserver(() => {
+                if (performanceTextarea.value.trim()) {
+                    const elapsed = Date.now() - startTime;
+                    document.getElementById('timer').textContent = `Completed in ${elapsed}ms`;
+                    observer.disconnect();
+                }
+            });
+            
+            observer.observe(performanceTextarea, { 
+                attributes: true, 
+                childList: true, 
+                subtree: true,
+                characterData: true
+            });
+        }
+
+        function checkAPIs() {
+            const output = document.getElementById('debug-output');
+            const results = [];
+            
+            if (typeof ai !== 'undefined') {
+                results.push('✅ AI object available');
+                results.push(`Rewriter API: ${typeof ai.rewriter !== 'undefined' ? '✅' : '❌'}`);
+                results.push(`Summarizer API: ${typeof ai.summarizer !== 'undefined' ? '✅' : '❌'}`);
+                results.push(`Proofreader API: ${typeof ai.proofreader !== 'undefined' ? '✅' : '❌'}`);
+            } else {
+                results.push('❌ AI object not available - check Chrome flags');
+            }
+            
+            output.innerHTML = `<pre>${results.join('\n')}</pre>`;
+        }
+
+        function checkExtension() {
+            const output = document.getElementById('debug-output');
+            const results = [];
+            
+            // Check if extension context menus are working
+            results.push('Extension Status:');
+            results.push('- Right-click on selected text to test context menu');
+            results.push('- Check chrome://extensions/ for extension status');
+            results.push('- Open DevTools Console for error messages');
+            
+            output.innerHTML = `<pre>${results.join('\n')}</pre>`;
+        }
+
+        function clearResults() {
+            document.querySelectorAll('.test-input').forEach(input => {
+                input.value = '';
+            });
+            document.getElementById('debug-output').innerHTML = '';
+            document.getElementById('timer').textContent = '';
+        }
+
+        // Add CSS animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); }
+                to { transform: translateX(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Auto-check APIs on load
+        window.addEventListener('load', () => {
+            setTimeout(checkAPIs, 1000);
+        });
+    </script>
+</body>
+</html>

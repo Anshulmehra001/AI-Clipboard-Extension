@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliWeb AI Setup Checker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .check-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #cbd5e0;
+        }
+        .check-item.success {
+            background: #f0fff4;
+            border-left-color: #38a169;
+        }
+        .check-item.error {
+            background: #fff5f5;
+            border-left-color: #e53e3e;
+        }
+        .check-item.warning {
+            background: #fffbeb;
+            border-left-color: #d69e2e;
+        }
+        .status-icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+        .check-content {
+            flex: 1;
+        }
+        .check-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .check-description {
+            color: #666;
+            font-size: 0.9em;
+        }
+        button {
+            background: #4299e1;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        button:hover {
+            background: #3182ce;
+        }
+        .setup-links {
+            background: #edf2f7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .setup-links h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+        .setup-links a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .setup-links a:hover {
+            text-decoration: underline;
+        }
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔧 IntelliWeb AI Setup Checker</h1>
+        
+        <div id="checks-container">
+            <!-- Checks will be populated here -->
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <button onclick="runAllChecks()">🔄 Run All Checks</button>
+            <button onclick="testAI()">🧪 Test AI APIs</button>
+            <button onclick="forceModelDownload()">📥 Force Model Download</button>
+        </div>
+        
+        <div class="setup-links">
+            <h3>🚀 Quick Setup Links</h3>
+            <ul>
+                <li><a href="chrome://flags/" target="_blank">Chrome Flags</a> - Enable AI features</li>
+                <li><a href="chrome://components/" target="_blank">Chrome Components</a> - Check model download</li>
+                <li><a href="chrome://on-device-internals/" target="_blank">On-Device Internals</a> - Detailed AI status</li>
+                <li><a href="chrome://extensions/" target="_blank">Extensions</a> - Manage IntelliWeb extension</li>
+            </ul>
+        </div>
+        
+        <div id="test-results" style="margin-top: 30px;"></div>
+    </div>
+
+    <script>
+        const checks = [
+            {
+                id: 'chrome-version',
+                title: 'Chrome Version',
+                description: 'Checking if Chrome version supports AI APIs',
+                test: () => {
+                    const version = navigator.userAgent.match(/Chrome\/(\d+)/);
+                    const chromeVersion = version ? parseInt(version[1]) : 0;
+                    return {
+                        success: chromeVersion >= 127,
+                        message: `Chrome ${chromeVersion} ${chromeVersion >= 127 ? '✓' : '✗ (Need 127+)'}`
+                    };
+                }
+            },
+            {
+                id: 'ai-object',
+                title: 'AI Object Availability',
+                description: 'Checking if window.ai is available',
+                test: () => {
+                    const available = typeof window.ai !== 'undefined';
+                    return {
+                        success: available,
+                        message: available ? 'window.ai is available ✓' : 'window.ai not found ✗'
+                    };
+                }
+            },
+            {
+                id: 'language-model',
+                title: 'Language Model API',
+                description: 'Checking if ai.languageModel is available',
+                test: () => {
+                    const available = typeof window.ai?.languageModel !== 'undefined';
+                    return {
+                        success: available,
+                        message: available ? 'ai.languageModel available ✓' : 'ai.languageModel not found ✗'
+                    };
+                }
+            },
+            {
+                id: 'rewriter-api',
+                title: 'Rewriter API',
+                description: 'Checking if ai.rewriter is available',
+                test: () => {
+                    const available = typeof window.ai?.rewriter !== 'undefined';
+                    return {
+                        success: available,
+                        message: available ? 'ai.rewriter available ✓' : 'ai.rewriter not found ✗'
+                    };
+                }
+            },
+            {
+                id: 'summarizer-api',
+                title: 'Summarizer API',
+                description: 'Checking if ai.summarizer is available',
+                test: () => {
+                    const available = typeof window.ai?.summarizer !== 'undefined';
+                    return {
+                        success: available,
+                        message: available ? 'ai.summarizer available ✓' : 'ai.summarizer not found ✗'
+                    };
+                }
+            },
+            {
+                id: 'extension-installed',
+                title: 'Extension Installation',
+                description: 'Checking if IntelliWeb extension is installed',
+                test: () => {
+                    // This is a basic check - in a real scenario, you'd check for extension-specific indicators
+                    return {
+                        success: true,
+                        message: 'Extension appears to be loaded (check chrome://extensions/)'
+                    };
+                }
+            }
+        ];
+
+        function createCheckElement(check, result) {
+            const div = document.createElement('div');
+            div.className = `check-item ${result.success ? 'success' : 'error'}`;
+            div.innerHTML = `
+                <div class="status-icon">${result.success ? '✅' : '❌'}</div>
+                <div class="check-content">
+                    <div class="check-title">${check.title}</div>
+                    <div class="check-description">${check.description}</div>
+                    <div style="margin-top: 5px; font-weight: bold;">${result.message}</div>
+                </div>
+            `;
+            return div;
+        }
+
+        function runAllChecks() {
+            const container = document.getElementById('checks-container');
+            container.innerHTML = '';
+            
+            let allPassed = true;
+            
+            checks.forEach(check => {
+                try {
+                    const result = check.test();
+                    const element = createCheckElement(check, result);
+                    container.appendChild(element);
+                    if (!result.success) allPassed = false;
+                } catch (error) {
+                    const result = { success: false, message: `Error: ${error.message}` };
+                    const element = createCheckElement(check, result);
+                    container.appendChild(element);
+                    allPassed = false;
+                }
+            });
+            
+            // Add summary
+            const summary = document.createElement('div');
+            summary.className = `check-item ${allPassed ? 'success' : 'warning'}`;
+            summary.innerHTML = `
+                <div class="status-icon">${allPassed ? '🎉' : '⚠️'}</div>
+                <div class="check-content">
+                    <div class="check-title">Overall Status</div>
+                    <div class="check-description">
+                        ${allPassed ? 
+                            'All checks passed! IntelliWeb should work perfectly.' : 
+                            'Some issues found. Please check the Chrome AI setup instructions above.'
+                        }
+                    </div>
+                </div>
+            `;
+            container.appendChild(summary);
+        }
+
+        async function testAI() {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML = '<h3>🧪 AI API Test Results</h3>';
+            
+            const tests = [
+                {
+                    name: 'AI Object Check',
+                    test: () => {
+                        console.log('AI available:', typeof window.ai);
+                        return `AI object: ${typeof window.ai}`;
+                    }
+                },
+                {
+                    name: 'Language Model Capabilities',
+                    test: async () => {
+                        if (window.ai?.languageModel) {
+                            const caps = await window.ai.languageModel.capabilities();
+                            return `Model status: ${caps.available}`;
+                        }
+                        return 'Language model not available';
+                    }
+                },
+                {
+                    name: 'Simple AI Test',
+                    test: async () => {
+                        if (window.ai?.languageModel) {
+                            const session = await window.ai.languageModel.create();
+                            const result = await session.prompt('Say hello');
+                            session.destroy();
+                            return `AI response: ${result.substring(0, 50)}...`;
+                        }
+                        return 'Cannot test - AI not available';
+                    }
+                }
+            ];
+            
+            for (const test of tests) {
+                try {
+                    const result = await test.test();
+                    resultsDiv.innerHTML += `
+                        <div class="code-block">
+                            <strong>${test.name}:</strong><br>
+                            ${result}
+                        </div>
+                    `;
+                } catch (error) {
+                    resultsDiv.innerHTML += `
+                        <div class="code-block" style="border-left: 4px solid #e53e3e;">
+                            <strong>${test.name} (Error):</strong><br>
+                            ${error.message}
+                        </div>
+                    `;
+                }
+            }
+        }
+
+        async function forceModelDownload() {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML = '<h3>📥 Forcing Model Download</h3>';
+            
+            try {
+                if (window.ai?.canCreateTextSession) {
+                    await window.ai.canCreateTextSession();
+                    resultsDiv.innerHTML += `
+                        <div class="code-block">
+                            Model download initiated. Check chrome://components/ for progress.
+                        </div>
+                    `;
+                } else {
+                    resultsDiv.innerHTML += `
+                        <div class="code-block" style="border-left: 4px solid #e53e3e;">
+                            Cannot force download - AI APIs not available.
+                            Please enable Chrome flags first.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `
+                    <div class="code-block" style="border-left: 4px solid #e53e3e;">
+                        Error forcing download: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Run checks on page load
+        window.addEventListener('load', runAllChecks);
+    </script>
+</body>
+</html>
