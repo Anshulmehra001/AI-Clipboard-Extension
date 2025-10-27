@@ -143,29 +143,32 @@ function createBaseGradient(ctx, canvas, keywords) {
 
 function addVisualElements(ctx, canvas, image) {
     const keywords = image.keywords;
+    const id = image.id;
     
-    // Add data streams
-    if (keywords.includes('data') || keywords.includes('streams')) {
-        drawDataStreams(ctx, canvas);
-    }
-    
-    // Add network nodes
-    if (keywords.includes('network') || keywords.includes('transformation')) {
-        drawNetworkNodes(ctx, canvas);
-    }
-    
-    // Add chaos elements
-    if (keywords.includes('chaos') || keywords.includes('tangled')) {
+    // Scene-specific visual elements
+    if (id === 'title-card') {
+        drawOfficeDesk(ctx, canvas);
+        drawHolographicLogo(ctx, canvas);
+    } else if (id === 'information-overload') {
         drawChaosElements(ctx, canvas);
-    }
-    
-    // Add tech elements
-    if (keywords.includes('CPU') || keywords.includes('chip')) {
+        drawHolographicWindows(ctx, canvas);
+    } else if (id === 'stressed-user') {
+        drawScreenGlow(ctx, canvas);
+    } else if (id === 'ai-transformation-visualized') {
+        drawTransformationInterface(ctx, canvas);
+    } else if (id === 'simplifying-jargon') {
+        drawScannerEffect(ctx, canvas);
+    } else if (id === 'aha-moment') {
+        drawWarmGlow(ctx, canvas);
+    } else if (keywords.includes('CPU') || keywords.includes('macro')) {
         drawTechElements(ctx, canvas);
-    }
-    
-    // Add bokeh lights
-    if (keywords.includes('bokeh') || keywords.includes('calm')) {
+        drawDataStreams(ctx, canvas);
+    } else if (keywords.includes('privacy') || keywords.includes('shield')) {
+        drawTechElements(ctx, canvas);
+        drawShieldEffect(ctx, canvas);
+    } else if (keywords.includes('productivity') || keywords.includes('collaboration')) {
+        drawWorkspaceElements(ctx, canvas);
+    } else if (keywords.includes('serene') || keywords.includes('bokeh')) {
         drawBokehLights(ctx, canvas);
     }
 }
@@ -276,34 +279,209 @@ function drawBokehLights(ctx, canvas) {
     }
 }
 
-function addTextElements(ctx, canvas, image) {
-    // Add title
-    ctx.fillStyle = '#00d4ff';
-    ctx.font = 'bold 72px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText(image.title, canvas.width / 2, canvas.height / 2 - 50);
+function drawOfficeDesk(ctx, canvas) {
+    // Draw desk silhouette
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+    ctx.fillRect(0, canvas.height * 0.7, canvas.width, canvas.height * 0.3);
     
-    // Add subtitle
+    // Draw keyboard outline
+    const keyboardWidth = 300;
+    const keyboardHeight = 100;
+    const keyboardX = canvas.width / 2 - keyboardWidth / 2;
+    const keyboardY = canvas.height * 0.75;
+    
+    ctx.strokeStyle = 'rgba(0, 212, 255, 0.5)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(keyboardX, keyboardY, keyboardWidth, keyboardHeight);
+}
+
+function drawHolographicLogo(ctx, canvas) {
+    // Draw glowing logo placeholder
+    const logoX = canvas.width / 2;
+    const logoY = canvas.height * 0.4;
+    
+    ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+    ctx.font = 'bold 48px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Context-Aware', logoX, logoY);
+    ctx.fillText('Creator', logoX, logoY + 60);
+    
+    // Add glow effect
+    ctx.shadowColor = '#00d4ff';
+    ctx.shadowBlur = 20;
+    ctx.fillText('Context-Aware', logoX, logoY);
+    ctx.fillText('Creator', logoX, logoY + 60);
+    ctx.shadowBlur = 0;
+}
+
+function drawHolographicWindows(ctx, canvas) {
+    for (let i = 0; i < 12; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        const width = Math.random() * 150 + 100;
+        const height = Math.random() * 100 + 60;
+        
+        ctx.strokeStyle = `rgba(0, 212, 255, ${Math.random() * 0.5 + 0.2})`;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(x, y, width, height);
+        
+        // Add some content lines
+        for (let j = 0; j < 3; j++) {
+            ctx.strokeStyle = `rgba(255, 255, 255, ${Math.random() * 0.3 + 0.1})`;
+            ctx.beginPath();
+            ctx.moveTo(x + 10, y + 20 + j * 15);
+            ctx.lineTo(x + width - 10, y + 20 + j * 15);
+            ctx.stroke();
+        }
+    }
+}
+
+function drawScreenGlow(ctx, canvas) {
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    
+    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 400);
+    gradient.addColorStop(0, 'rgba(100, 150, 255, 0.3)');
+    gradient.addColorStop(1, 'rgba(100, 150, 255, 0)');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawTransformationInterface(ctx, canvas) {
+    const leftX = canvas.width * 0.2;
+    const rightX = canvas.width * 0.8;
+    const centerY = canvas.height / 2;
+    
+    // Left side - simple text
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+    ctx.font = '24px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Simple text', leftX, centerY);
+    
+    // Right side - expanded text
+    ctx.fillStyle = 'rgba(0, 212, 255, 0.8)';
+    ctx.fillText('Detailed paragraph', rightX, centerY - 20);
+    ctx.fillText('with full context', rightX, centerY + 20);
+    
+    // Connecting arrow
+    ctx.strokeStyle = 'rgba(0, 212, 255, 0.6)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(leftX + 80, centerY);
+    ctx.lineTo(rightX - 80, centerY);
+    ctx.stroke();
+    
+    // Arrow head
+    ctx.beginPath();
+    ctx.moveTo(rightX - 80, centerY);
+    ctx.lineTo(rightX - 95, centerY - 10);
+    ctx.lineTo(rightX - 95, centerY + 10);
+    ctx.closePath();
+    ctx.fill();
+}
+
+function drawScannerEffect(ctx, canvas) {
+    // Draw scanning line
+    const scanY = canvas.height / 2;
+    const gradient = ctx.createLinearGradient(0, scanY - 20, 0, scanY + 20);
+    gradient.addColorStop(0, 'rgba(0, 212, 255, 0)');
+    gradient.addColorStop(0.5, 'rgba(0, 212, 255, 0.8)');
+    gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, scanY - 20, canvas.width, 40);
+}
+
+function drawWarmGlow(ctx, canvas) {
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    
+    const gradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, 300);
+    gradient.addColorStop(0, 'rgba(0, 212, 255, 0.4)');
+    gradient.addColorStop(0.7, 'rgba(0, 212, 255, 0.1)');
+    gradient.addColorStop(1, 'rgba(0, 212, 255, 0)');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function drawShieldEffect(ctx, canvas) {
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+    
+    // Draw shield outline
+    ctx.strokeStyle = 'rgba(0, 212, 255, 0.6)';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 150, 0, Math.PI * 2);
+    ctx.stroke();
+    
+    // Add particles being deflected
+    for (let i = 0; i < 8; i++) {
+        const angle = (i / 8) * Math.PI * 2;
+        const x = centerX + Math.cos(angle) * 180;
+        const y = centerY + Math.sin(angle) * 180;
+        
+        ctx.fillStyle = 'rgba(255, 100, 100, 0.6)';
+        ctx.beginPath();
+        ctx.arc(x, y, 4, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function drawWorkspaceElements(ctx, canvas) {
+    // Draw desk outlines
+    for (let i = 0; i < 4; i++) {
+        const x = (i % 2) * canvas.width * 0.5 + canvas.width * 0.1;
+        const y = Math.floor(i / 2) * canvas.height * 0.4 + canvas.height * 0.3;
+        
+        ctx.strokeStyle = 'rgba(0, 212, 255, 0.3)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(x, y, canvas.width * 0.3, canvas.height * 0.2);
+        
+        // Add holographic interface above each desk
+        ctx.fillStyle = 'rgba(0, 212, 255, 0.4)';
+        ctx.fillRect(x + 20, y - 40, canvas.width * 0.25, 30);
+    }
+}
+
+function addTextElements(ctx, canvas, image) {
+    // Add main title
+    ctx.fillStyle = '#00d4ff';
+    ctx.font = 'bold 64px Arial';
+    ctx.textAlign = 'center';
+    
+    // Extract clean title without emoji and number
+    const cleanTitle = image.title.replace(/^[🎬😤✨🔍💡🧠🔒🎯]\s*\d*\.\s*/, '');
+    ctx.fillText(cleanTitle, canvas.width / 2, canvas.height / 2 - 30);
+    
+    // Add Context-Aware Creator branding
     ctx.fillStyle = '#a0a8cc';
-    ctx.font = '36px Arial';
-    ctx.fillText('AI Generated Visual', canvas.width / 2, canvas.height / 2 + 20);
+    ctx.font = '32px Arial';
+    ctx.fillText('Context-Aware Creator Demo', canvas.width / 2, canvas.height / 2 + 30);
+    
+    // Add demo usage
+    ctx.fillStyle = 'rgba(255, 165, 0, 0.8)';
+    ctx.font = '24px Arial';
+    ctx.fillText(image.demoUse, canvas.width / 2, canvas.height / 2 + 80);
+    
+    // Add section badge
+    ctx.fillStyle = 'rgba(218, 112, 214, 0.8)';
+    ctx.font = '20px Arial';
+    ctx.fillText(image.section, canvas.width / 2, canvas.height - 80);
     
     // Add watermark
-    ctx.fillStyle = 'rgba(0, 212, 255, 0.3)';
-    ctx.font = '24px Arial';
-    ctx.fillText('Context-Aware Creator', canvas.width / 2, canvas.height - 50);
-    
-    // Add keywords
-    ctx.fillStyle = 'rgba(160, 168, 204, 0.6)';
+    ctx.fillStyle = 'rgba(0, 212, 255, 0.4)';
     ctx.font = '18px Arial';
-    ctx.fillText(image.keywords.join(' • '), canvas.width / 2, canvas.height - 100);
+    ctx.fillText('Chrome Built-in AI Extension', canvas.width / 2, canvas.height - 40);
 }
 
 function createImageCard(image) {
     return `
         <div class="image-card">
             <div class="image-placeholder" id="placeholder-${image.id}">
-                <span class="placeholder-text">Cinematic Visual</span>
+                <span class="placeholder-text">Demo Scene Preview</span>
             </div>
             <h3 class="image-title">${image.title}</h3>
             <div class="section-badge">
@@ -320,10 +498,10 @@ function createImageCard(image) {
                 <strong>🏷️ Keywords:</strong> ${image.keywords.join(', ')}
             </div>
             <button class="download-btn" onclick="downloadImage('${image.id}', '${image.title}')">
-                🎬 Download Cinematic Visual (1920x1080)
+                🎬 Download Demo Scene (1920x1080)
             </button>
             <button class="copy-prompt-btn" onclick="copyPrompt('${image.id}')">
-                📋 Copy AI Prompt
+                📋 Copy Professional Prompt
             </button>
         </div>
     `;
