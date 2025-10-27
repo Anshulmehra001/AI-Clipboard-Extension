@@ -2,88 +2,100 @@
 
 const images = [
     {
-        id: 'title-card-background',
-        title: 'Title Card Background',
-        description: 'A minimalist, abstract background with glowing blue and teal data streams flowing gently across a dark canvas.',
-        prompt: 'A minimalist, abstract background with glowing blue and teal data streams flowing gently from left to right on a dark, textured canvas. A central, soft focal point of light. Digital art, 16:9 aspect ratio.',
-        keywords: ['abstract', 'data streams', 'minimalist', 'background']
+        id: 'demo-intro-title',
+        title: '🎬 Demo Introduction',
+        description: 'Opening title card for demonstration video showcasing Context-Aware Creator extension.',
+        prompt: 'Professional video title card with "Context-Aware Creator" text, Chrome extension logo, and flowing AI data streams. Clean, modern design for video introduction.',
+        keywords: ['title', 'intro', 'professional', 'video'],
+        demoUse: 'Video opening sequence'
     },
     {
-        id: 'information-overload',
-        title: 'Information Overload',
-        description: 'A human silhouette overwhelmed by floating holographic windows of charts and text.',
-        prompt: 'An abstract representation of information overload. A human silhouette seen from behind, looking at a chaotic explosion of floating holographic windows showing charts, text, and code. Glowing blue and teal data particles fill the air. Dark, futuristic, digital art, 16:9.',
-        keywords: ['overload', 'holographic', 'chaos', 'data']
+        id: 'problem-statement',
+        title: '😤 The Problem: Text Transformation Hassle',
+        description: 'Visual showing the frustration of copy-paste workflows and switching between apps.',
+        prompt: 'Split screen showing frustrated user copying text, switching apps, and pasting. Chaotic workflow with multiple browser tabs and applications. Represents the old way of text processing.',
+        keywords: ['problem', 'frustration', 'workflow', 'chaos'],
+        demoUse: 'Problem identification scene'
     },
     {
-        id: 'stressed-user',
-        title: 'Stressed User',
-        description: 'A stylized person at a desk, frustrated by a complex screen.',
-        prompt: 'A minimalist illustration of a person sitting at a futuristic desk, their head in their hands in a moment of frustration. The computer screen in front of them emits a complex, overwhelming glow of data. Stylized, faceless character, deep blue and teal palette, 16:9.',
-        keywords: ['stress', 'frustration', 'desk', 'overwhelmed']
+        id: 'solution-preview',
+        title: '✨ The Solution: Context-Aware Creator',
+        description: 'Clean interface showing the Chrome extension in action with right-click context menu.',
+        prompt: 'Clean browser interface with selected text and elegant context menu showing AI transformation options. Professional, modern design highlighting the extension\'s simplicity.',
+        keywords: ['solution', 'extension', 'interface', 'clean'],
+        demoUse: 'Solution introduction'
     },
     {
-        id: 'focused-typing',
-        title: 'Focused Typing',
-        description: 'A close-up of hands typing on a glowing, futuristic keyboard.',
-        prompt: 'A close-up, top-down view of hands typing on a sleek, minimalist keyboard. The keys are blank, but glowing teal light emanates from between them. The background is a clean, dark surface. Digital art, photorealistic, 16:9.',
-        keywords: ['typing', 'keyboard', 'hands', 'focus']
+        id: 'feature-expand-ideas',
+        title: '🚀 Feature Demo: Expand Ideas',
+        description: 'Before and after comparison showing brief text transformed into detailed content.',
+        prompt: 'Split screen showing "AI will change education" transforming into detailed paragraph. Visual arrows and smooth transition effects. Professional presentation style.',
+        keywords: ['expand', 'transformation', 'before-after', 'feature'],
+        demoUse: 'Feature demonstration'
     },
     {
-        id: 'ai-transformation',
-        title: 'AI Transformation',
-        description: 'A visual of a simple data stream elegantly transforming into a complex, structured network.',
-        prompt: 'An abstract background showing a single, simple data stream on the left transforming into a complex, beautiful, and structured network of glowing data on the right. A clear visual metamorphosis. Minimalist, glowing blue and teal on a dark canvas, digital art, 16:9.',
-        keywords: ['transformation', 'network', 'evolution', 'AI']
+        id: 'feature-simplify-jargon',
+        title: '🔍 Feature Demo: Simplify Jargon',
+        description: 'Complex technical text being transformed into simple, understandable language.',
+        prompt: 'Complex technical jargon on left side transforming into simple, clear explanation on right. Visual representation of complexity becoming clarity.',
+        keywords: ['simplify', 'jargon', 'clarity', 'transformation'],
+        demoUse: 'Feature demonstration'
     },
     {
-        id: 'complex-jargon',
-        title: 'Complex Jargon',
-        description: 'A tangled, chaotic knot of glowing data threads, representing complexity.',
-        prompt: 'An abstract visualization of complexity. A tangled, chaotic knot of glowing white and purple data threads, dense and difficult to follow. The knot is the central focus on a dark blue background. Digital art, 16:9.',
-        keywords: ['complexity', 'tangled', 'knot', 'chaos']
+        id: 'feature-action-items',
+        title: '✅ Feature Demo: Find Action Items',
+        description: 'Long meeting notes with the key action item highlighted and extracted.',
+        prompt: 'Long text block with important action item being highlighted and extracted. Clean, professional interface showing AI\'s ability to find key tasks.',
+        keywords: ['action', 'extraction', 'highlight', 'tasks'],
+        demoUse: 'Feature demonstration'
     },
     {
-        id: 'simplified-idea',
-        title: 'Simplified Idea',
-        description: 'The tangled knot from the previous image, now unraveled into a single, clean, elegant line.',
-        prompt: 'An abstract visualization of simplicity and clarity. The tangled knot from the previous image has been unraveled into a single, clean, and elegant glowing teal line that flows smoothly across the screen. Minimalist, beautiful, digital art, 16:9.',
-        keywords: ['simplicity', 'clarity', 'elegant', 'clean']
+        id: 'feature-generate-tweets',
+        title: '🐦 Feature Demo: Generate Tweets',
+        description: 'Long content being transformed into engaging, concise social media posts.',
+        prompt: 'Long article or content transforming into short, engaging tweet with hashtags. Social media interface styling with character count.',
+        keywords: ['tweet', 'social', 'concise', 'engagement'],
+        demoUse: 'Feature demonstration'
     },
     {
-        id: 'aha-moment',
-        title: 'Aha! Moment',
-        description: 'A human silhouette with a glowing lightbulb next to their head, symbolizing understanding.',
-        prompt: 'A stylized, minimalist illustration of a human silhouette in profile. A single, bright teal lightbulb icon glows brightly next to their head, representing a moment of understanding. Dark background, faceless character, digital art, 16:9.',
-        keywords: ['understanding', 'lightbulb', 'insight', 'moment']
+        id: 'chrome-ai-power',
+        title: '🧠 Powered by Chrome Built-in AI',
+        description: 'Visualization of Gemini Nano processing happening locally on device.',
+        prompt: 'Futuristic CPU chip labeled "Gemini Nano" with data streams flowing through it. Emphasis on local processing and privacy. High-tech, professional design.',
+        keywords: ['AI', 'local', 'processing', 'Gemini'],
+        demoUse: 'Technology explanation'
     },
     {
-        id: 'gemini-nano-cpu',
-        title: 'Gemini Nano CPU',
-        description: 'A futuristic, glowing CPU chip with "Gemini Nano" subtly etched on it.',
-        prompt: 'A futuristic, glowing teal CPU chip in the center of the screen. Intricate circuits and data streams are visible on its surface. The letters "Gemini Nano" are subtly etched onto the chip. Dark background, macro shot, digital art, 16:9.',
-        keywords: ['CPU', 'chip', 'technology', 'Gemini Nano']
+        id: 'privacy-security',
+        title: '🔒 100% Private & Secure',
+        description: 'Shield protecting user data with "No External Servers" messaging.',
+        prompt: 'Protective shield around user data with "100% Local Processing" and "No Data Sent to Servers" text. Security and privacy focused design.',
+        keywords: ['privacy', 'security', 'local', 'protection'],
+        demoUse: 'Privacy assurance'
     },
     {
-        id: 'privacy-shield',
-        title: 'Privacy Shield',
-        description: 'A glowing shield protecting the CPU, symbolizing on-device security.',
-        prompt: 'A glowing, semi-transparent teal shield forming a protective bubble around the futuristic CPU from the previous image. The shield deflects small, red data particles, representing threats. A symbol of security and privacy. Digital art, 16:9.',
-        keywords: ['privacy', 'security', 'shield', 'protection']
+        id: 'workflow-comparison',
+        title: '⚡ Old vs New Workflow',
+        description: 'Side-by-side comparison of old copy-paste workflow vs new one-click solution.',
+        prompt: 'Split screen: Left shows complex multi-step workflow with arrows and multiple apps. Right shows simple one-click solution. Clear visual comparison.',
+        keywords: ['comparison', 'workflow', 'efficiency', 'simple'],
+        demoUse: 'Workflow comparison'
     },
     {
-        id: 'productive-student',
-        title: 'Productive Student',
-        description: 'A stylized student looking happy and productive at their futuristic workspace.',
-        prompt: 'A minimalist illustration of a student at a futuristic desk, looking up from their screen with a confident smile. Glowing, organized data streams flow around them. Faceless character, blue and teal palette, 16:9.',
-        keywords: ['productivity', 'student', 'success', 'workspace']
+        id: 'user-testimonial',
+        title: '💬 Happy Users',
+        description: 'Stylized representation of satisfied users with positive feedback.',
+        prompt: 'Happy user silhouettes with speech bubbles containing positive feedback. Professional, clean design showing user satisfaction and success.',
+        keywords: ['testimonial', 'satisfaction', 'users', 'feedback'],
+        demoUse: 'Social proof'
     },
     {
-        id: 'final-background',
-        title: 'Final Background',
-        description: 'A beautiful, calm, and inspiring abstract background with soft, out-of-focus lights.',
-        prompt: 'A beautiful, calm, and inspiring abstract background. Soft, out-of-focus bokeh lights in shades of deep blue and teal drift peacefully. A feeling of accomplishment and clarity. Minimalist, digital art, 16:9.',
-        keywords: ['calm', 'inspiring', 'bokeh', 'peaceful']
+        id: 'call-to-action',
+        title: '📥 Get Started Today',
+        description: 'Final call-to-action slide with download/installation instructions.',
+        prompt: 'Professional call-to-action design with "Download Now" button, GitHub link, and installation steps. Clean, actionable design.',
+        keywords: ['CTA', 'download', 'action', 'installation'],
+        demoUse: 'Video conclusion'
     }
 ];
 
@@ -297,10 +309,13 @@ function createImageCard(image) {
     return `
         <div class="image-card">
             <div class="image-placeholder" id="placeholder-${image.id}">
-                <span class="placeholder-text">AI Generated Image</span>
+                <span class="placeholder-text">Demo Visual</span>
             </div>
             <h3 class="image-title">${image.title}</h3>
             <p class="image-description">${image.description}</p>
+            <div class="demo-usage">
+                <strong>🎬 Demo Usage:</strong> ${image.demoUse}
+            </div>
             <div class="image-prompt">
                 <strong>AI Prompt:</strong> ${image.prompt}
             </div>
@@ -308,7 +323,7 @@ function createImageCard(image) {
                 <strong>Keywords:</strong> ${image.keywords.join(', ')}
             </div>
             <button class="download-btn" onclick="downloadImage('${image.id}', '${image.title}')">
-                📥 Download PNG (1920x1080)
+                🎬 Download for Video (1920x1080)
             </button>
         </div>
     `;

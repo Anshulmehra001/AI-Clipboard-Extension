@@ -137,6 +137,17 @@ body {
     font-family: 'Courier New', monospace;
 }
 
+.demo-usage {
+    background: rgba(255, 165, 0, 0.1);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #ffa500;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 165, 0, 0.3);
+    border-left: 3px solid #ffa500;
+}
+
 .image-keywords {
     background: rgba(0, 212, 255, 0.1);
     padding: 8px 12px;
